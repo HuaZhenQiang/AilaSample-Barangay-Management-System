@@ -241,7 +241,7 @@
             <div class="row button my-4">
               <input type="submit" name="Login" value="Login">
             </div>
-            <a href="register.php" style="margin-left: 30%;">Back to Homepage</a>
+            <a href="dashboard.php" style="margin-left: 30%;">Back to Homepage</a>
           </form>
         </div>
       </div>
