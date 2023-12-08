@@ -73,13 +73,15 @@
 
     /* Active/current link */
     .sidebar a.active {
-      background-color: #04AA6D;
+      background-color: #002a5b;
+/*      background-color: #04AA6D;*/
       color: white;
     }
 
     /* Links on mouse-over */
     .sidebar a:hover:not(.active) {
-      background-color: #555;
+      background-color: #002a5b;
+/*      background-color: #555;*/
       color: white;
     }
 
@@ -138,15 +140,18 @@
 
   <!-- Sidebar -->
   <div class="sidebar">
-    <a class="active" href="#home">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
+    <a href="#Dashboard">Dashboard</a>
+    <a href="#Announcement">Announcement</a>
+    <a href="#Officials">Officials</a>
+    <a href="#Issuance">Issuance Details</a>
+    <a href="#ContentM">Content Management</a>
+    <a href="#Records">Records</a>
+    <a href="#Request">Monitoring of Request</a>
   </div>
 
   <!-- Page content -->
   <div class="content">
-    Content Here
+    Dashboard |  
   </div>
 
 
