@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Barangay Management System</title>
-    <!-- CSS -->
+  <!-- CSS -->
   <link rel="icon" href="text/css" href="img/logo.png">
   <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -168,87 +168,87 @@
       var day = today.getDate();
       var monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"];
-        var month = monthNames[today.getMonth()];
-        var year = today.getFullYear();
-        var h = today.getHours();
-        var m = today.getMinutes();
-        var s = today.getSeconds();
-        var ampm = h >= 12 ? 'pm' : 'am';
+      var month = monthNames[today.getMonth()];
+      var year = today.getFullYear();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      var ampm = h >= 12 ? 'pm' : 'am';
 
-        if (h > 12) {
-          h = h - 12;
-        }
-
-        else if (h==0) {
-          h = 12;
-        }
-
-        m = checkTime(m);
-        s = checkTime(s);
-        document.getElementById('txt').innerHTML = month + " " + day + ", " + year + " <br> " + h + ":" + m + ":" + s + " " + ampm;
-        var t = setTimeout(startTime, 500);
+      if (h > 12) {
+        h = h - 12;
       }
 
-      function checkTime(i) {
-        if (i < 10) {i = "0" + i};
-        return i;
+      else if (h==0) {
+        h = 12;
       }
-      </script>
-    </head>
 
-    <body style="background: url('img/bc16.jfif') no-repeat center center fixed; background-size: 100%;" onload="startTime()">
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('txt').innerHTML = month + " " + day + ", " + year + " <br> " + h + ":" + m + ":" + s + " " + ampm;
+      var t = setTimeout(startTime, 500);
+    }
 
-      <?php
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};
+      return i;
+    }
+  </script>
+</head>
+
+<body style="background: url('img/bc16.jfif') no-repeat center center fixed; background-size: 100%;" onload="startTime()">
+
+  <?php
       // Show error message if any
-      if (isset($error_message)) {
-        echo '<p style="color: red;">' . $error_message . '</p>';
-      }
-      ?>
+  if (isset($error_message)) {
+    echo '<p style="color: red;">' . $error_message . '</p>';
+  }
+  ?>
 
-      <header class="text-light py-1 px-1" style="background-color: #002a5b">
-        <div class="d-flex">
-          <img src="img/logo.png" alt="Iloilo City Seal" style="height: 70px; width: auto;">
-          <div class="me-auto ms-3">
-            <span class="h4">Barangay Buntatala</span><br>
-            <span class="d-none d-md-block">Jaro, Iloilo City</span>
-            <span class="d-none d-ms-none">Jaro, Iloilo City</span>
-          </div>
-
-          <div class="px-5 float-end">
-            <span class><br>
-              <span id="txt"></span>
-            </span>
-          </div>
-        </div>
-      </header>
-
-      <div class="main">
-        <div class="wrapper">
-          <div class="title"><span>Resident Access</span></div>
-          <form method="POST" action="">
-            <div class="row">
-              <i class="fas fa-user dark" style="color:black;"></i>
-              <input type="text" required name="username" placeholder="Username">
-            </div>
-            <div class="row">
-              <i class="fas fa-lock" style="color:black;"></i>
-              <input required="required" type="password" name="password" id="password" placeholder="Password">
-            </div>
-
-            <input type="checkbox" onclick="togglePassword()">&nbsp;Show Password
-            <a href="admin_login.php" style="margin-left: 25%;">Admin Login</a>
-
-            <div class="row button my-4">
-              <input type="submit" name="Login" value="Login">
-            </div>
-            <a href="dashboard.php" style="margin-left: 30%;">Back to Homepage</a>
-          </form>
-        </div>
+  <header class="text-light py-1 px-1" style="background-color: #002a5b">
+    <div class="d-flex">
+      <img src="img/logo.png" alt="Iloilo City Seal" style="height: 70px; width: auto;">
+      <div class="me-auto ms-3">
+        <span class="h4">Barangay Buntatala</span><br>
+        <span class="d-none d-md-block">Jaro, Iloilo City</span>
+        <span class="d-none d-ms-none">Jaro, Iloilo City</span>
       </div>
 
-      <div class="fixed-bottom text-center text-light p-1" style="font-size: 10pt;">
-        <!-- opacity: 0.5; -->
-        Developed by<br>Ira Jude Tajanlangit &copy; All Rights Reserved
+      <div class="px-5 float-end">
+        <span class><br>
+          <span id="txt"></span>
+        </span>
       </div>
-    </body>
+    </div>
+  </header>
+
+  <div class="main">
+    <div class="wrapper">
+      <div class="title"><span>Resident Access</span></div>
+      <form method="POST" action="">
+        <div class="row">
+          <i class="fas fa-user dark" style="color:black;"></i>
+          <input type="text" required name="username" placeholder="Username">
+        </div>
+        <div class="row">
+          <i class="fas fa-lock" style="color:black;"></i>
+          <input required="required" type="password" name="password" id="password" placeholder="Password">
+        </div>
+
+        <input type="checkbox" onclick="togglePassword()">&nbsp;Show Password
+        <a href="admin_login.php" style="margin-left: 25%;">Admin Login</a>
+
+        <div class="row button my-4">
+          <input type="submit" name="Login" value="Login">
+        </div>
+        <a href="dashboard.php" style="margin-left: 30%;">Back to Homepage</a>
+      </form>
+    </div>
+  </div>
+
+  <div class="fixed-bottom text-center text-light p-1" style="font-size: 10pt;">
+    <!-- opacity: 0.5; -->
+    Developed by<br>Ira Jude Tajanlangit &copy; All Rights Reserved
+  </div>
+</body>
 </html>
