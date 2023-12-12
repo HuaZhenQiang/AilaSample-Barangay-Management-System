@@ -9,8 +9,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css.map" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/cdb.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
 
   <style>
     /* The top navigation bar */
@@ -84,30 +86,47 @@
   }
 
 div.content {
-  margin-left: 250px;
-  /* Adjusted to accommodate the sidebar width */
-  padding: 1px 16px;
-  min-height: 100vh;
-  background-color: #f1f1f1;
-}
+      margin-left: 250px;
+      padding: 1px 16px;
+      min-height: 100vh;
+      background-color: #f1f1f1;
+    }
 
-/* On screens that are less than 700px wide, make the sidebar into a topbar */
-@media screen and (max-width: 1000px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
+    /* On screens that are less than 1000px wide, make the sidebar collapsible */
+    @media screen and (max-width: 1000px) {
+      .sidebar {
+        width: 0;
+      }
 
-  .sidebar a {float: none;}
-  div.content {margin-left: 0;}
-}
+      .sidebar.show {
+        width: 250px;
+      }
 
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-@media screen and (max-width: 500px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
+      .sidebar a {
+        padding: 16px;
+        text-align: center;
+      }
+
+      .header .menu-icon {
+        display: block;
+      }
+
+      .header a {
+        display: none;
+      }
+
+      .header .title {
+        margin-left: 0;
+      }
+
+      .header .title,
+      .header .menu-icon {
+        cursor: pointer;
+        order: -1;
+      }
+
+      div.content {
+        margin-left: 0;
   }
 }
 
@@ -131,13 +150,47 @@ div.content {
 
   <!-- Sidebar -->
   <div class="sidebar">
-    <a href="#Dashboard">Dashboard</a>
-    <a href="#Announcement">Announcement</a>
-    <a href="#Officials">Officials</a>
-    <a href="#Issuance">Issuance Details</a>
-    <a href="#ContentM">Content Management</a>
-    <a href="#Records">Records</a>
-    <a href="#Request">Monitoring of Request</a>
+
+    <a href="#dashboard.php">
+           <i class="fas fa-home"></i>
+            <span class="nav-item">Dashboard</span>
+          </a>
+    <a href="#announcement.php">
+            <i class="fas fa-bullhorn"></i>
+            <span class="nav-item">Announcement</span>
+          </a>
+          <a href="#officials.php">
+            <i class="fas fa-user"></i>
+            <span class="nav-item">Officials</span>
+          </a>
+    <a href="#Issuance.php">
+            <i class="fas fa-id-card"></i>
+            <span class="nav-item">Issuance Details</span>
+          </a>
+          <a href="#contentM.php">
+            <i class="fas fa-database"></i>
+            <span class="nav-item">Content Management</span>
+          </a>
+    <a href="#records.php">
+            <i class="fab fa-dochub"></i>
+            <span class="nav-item">Records</span>
+          </a>
+          <a href="#request.php">
+            <i class="fas fa-folder-open"></i>
+            <span class="nav-item">Monitoring of Request</span>
+          </a>
+    <a href="#setting.php">
+            <i class="fas fa-cog"></i>
+            <span class="nav-item">Setting</span>
+          </a>
+          <a href="#help.php">
+            <i class="fas fa-question-circle"></i>
+            <span class="nav-item">Help</span>
+          </a>
+    <a href="#logout.php">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="nav-item">Logout</span>
+          </a>
   </div>
 
   <!-- Page content -->
