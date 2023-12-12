@@ -262,7 +262,7 @@
       }
       ?>
 
-      <header class="text-light py-1 px-1" style="background-color: #002a5b">
+      <!-- <header class="text-light py-1 px-1" style="background-color: #002a5b">
         <div class="d-flex">
           <img src="img/logo.png" alt="Iloilo City Seal">
           <div class="me-auto ms-3">
@@ -277,7 +277,7 @@
             </span>
           </div>
         </div>
-      </header>
+      </header> -->
 
 
 
@@ -285,7 +285,7 @@
       <!-- Top Navigation Bar -->
   <div class="header">
     <img src="img/logo.png" alt="Iloilo City Seal">
-    <div class="title">
+    <div class="title ">
       <span class="h4">Barangay Buntatala</span><br>
       <span class="d-none d-md-block">Jaro, Iloilo City</span>
       <span class="d-none d-sm-none">Jaro, Iloilo City</span>
