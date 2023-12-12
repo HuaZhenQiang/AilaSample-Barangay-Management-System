@@ -12,8 +12,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
-
-
   <style>
     /* The top navigation bar */
     .header {
@@ -75,49 +73,44 @@
     .sidebar a.active {
       background-color: #002a5b;
 /*      background-color: #04AA6D;*/
-      color: white;
-    }
+color: white;
+}
 
-    /* Links on mouse-over */
-    .sidebar a:hover:not(.active) {
-      background-color: #002a5b;
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #002a5b;
 /*      background-color: #555;*/
-      color: white;
-    }
+color: white;
+}
 
-    /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
-    div.content {
-      margin-left: 220px;
-      /* Adjusted to accommodate the sidebar width */
-      padding: 1px 16px;
-      height: 1000px;
-    }
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 220px;
+  /* Adjusted to accommodate the sidebar width */
+  padding: 1px 16px;
+  height: 1000px;
+}
 
-    /* On screens that are less than 700px wide, make the sidebar into a topbar */
-    @media screen and (max-width: 700px) {
-      .sidebar {
-        width: 100%;
-        height: auto;
-        position: fixed;
-      }
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+  }
 
-      .sidebar a {
-        float: left;
-      }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
 
-      div.content {
-        margin-left: 0;
-      }
-    }
-
-    /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-    @media screen and (max-width: 400px) {
-      .sidebar a {
-        text-align: center;
-        float: none;
-      }
-    }
-  </style>
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+</style>
 
 
 </head>
