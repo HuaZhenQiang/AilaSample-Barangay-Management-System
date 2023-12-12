@@ -54,11 +54,11 @@
     .sidebar {
       margin: 60px 0 0 0;
       padding: 0; /* Adjusted to accommodate the top bar */
-      width: 200px;
+      width: 250px;
       background-color: #ffffff;
       position: fixed;
       height: 100%;
-      overflow: auto;
+      overflow-y: auto;
     }
 
     /* Sidebar links */
@@ -72,22 +72,22 @@
     /* Active/current link */
     .sidebar a.active {
       background-color: #002a5b;
-/*      background-color: #04AA6D;*/
+      /*background-color: #04AA6D;*/
       color: white;
-}
+    }
 
-/* Links on mouse-over */
-.sidebar a:hover:not(.active) {
-  background-color: #002a5b;
-/*      background-color: #555;*/
-color: white;
-}
+    /* Links on mouse-over */
+    .sidebar a:hover:not(.active) {
+      background-color: #002a5b;
+    /* background-color: #555;*/
+    color: white;
+  }
 
 div.content {
-  margin-left: 200px;
+  margin-left: 250px;
   /* Adjusted to accommodate the sidebar width */
   padding: 1px 16px;
-  height: 1000px;
+  min-height: 100vh;
   background-color: #f1f1f1;
 }
 
@@ -96,10 +96,10 @@ div.content {
   .sidebar {
     width: 100%;
     height: auto;
-    position: fixed;
+    position: relative;
   }
 
-  .sidebar a {float: left;}
+  .sidebar a {float: none;}
   div.content {margin-left: 0;}
 }
 
@@ -110,9 +110,11 @@ div.content {
     float: none;
   }
 }
+
 </style>
 
 </head>
+
 
 <body style="background: url('img/') no-repeat center center fixed; background-size: 100%;" onload="startTime()">
 
