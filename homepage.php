@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +23,8 @@
       /* Ensure the top bar is above other elements */
       display: flex;
       align-items: center;
-      padding: 10px 20px;
+      padding: 5px 20px;
+
     }
 
     .header img {
@@ -51,11 +51,11 @@
 
     /* The side navigation menu */
     .sidebar {
-      margin: 70px 0 0 0;
+      margin: 60px 0 0 0;
       /* Adjusted to accommodate the top bar */
       padding: 0;
       width: 200px;
-      background-color: #f1f1f1;
+      background-color: #ffffff;
       position: fixed;
       height: 100%;
       overflow: auto;
@@ -89,6 +89,7 @@ div.content {
   /* Adjusted to accommodate the sidebar width */
   padding: 1px 16px;
   height: 1000px;
+  background-color: #f1f1f1;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
@@ -125,6 +126,9 @@ div.content {
       <span class="d-none d-md-block">Jaro, Iloilo City</span>
       <span class="d-none d-sm-none">Jaro, Iloilo City</span>
     </div>
+
+    <div id="txt" style="color: white; margin-left: auto; text-align: center;"></div> <!-- Add this line for displaying date and time -->
+
    <!--  <a href="#home">Home</a>
     <a href="#news">News</a>
     <a href="#contact">Contact</a>
