@@ -151,6 +151,62 @@
       text-decoration: underline;
     }
 
+    /* The top navigation bar */
+    .header {
+      overflow: hidden;
+      background-color: #002a5b;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      /* Ensure the top bar is above other elements */
+      display: flex;
+      align-items: center;
+      padding: 5px 20px;
+
+    }
+
+    .header img {
+      height: 50px; /* Adjust the height as needed */
+      width: auto;
+    }
+
+    .header .title {
+      margin-left: 20px;
+      color: white;
+    }
+
+    .header a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin-left: auto;
+    }
+
+    .header a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .header a {
+        display: none;
+      }
+
+      .header .title {
+        margin-left: 0;
+      }
+
+      .header .title,
+      .header .menu-icon {
+        cursor: pointer;
+        order: -1;
+      }
+
+      div.content {
+        margin-left: 0;
+      }
+
+
   </style>
 
   <script>
@@ -194,6 +250,7 @@
         return i;
       }
       </script>
+
     </head>
 
     <body style="background: url('img/bc16.jfif') no-repeat center center fixed; background-size: 100%;" onload="startTime()">
@@ -207,11 +264,11 @@
 
       <header class="text-light py-1 px-1" style="background-color: #002a5b">
         <div class="d-flex">
-          <img src="img/logo.png" alt="Iloilo City Seal" style="height: 70px; width: auto;">
+          <img src="img/logo.png" alt="Iloilo City Seal">
           <div class="me-auto ms-3">
             <span class="h4">Barangay Buntatala</span><br>
             <span class="d-none d-md-block">Jaro, Iloilo City</span>
-            <span class="d-none d-ms-none">Jaro, Iloilo City</span>
+            <span class="d-none d-sm-none">Jaro, Iloilo City</span>
           </div>
 
           <div class="px-5 float-end">
@@ -221,6 +278,24 @@
           </div>
         </div>
       </header>
+
+
+
+
+      <!-- Top Navigation Bar -->
+  <div class="header">
+    <img src="img/logo.png" alt="Iloilo City Seal">
+    <div class="title">
+      <span class="h4">Barangay Buntatala</span><br>
+      <span class="d-none d-md-block">Jaro, Iloilo City</span>
+      <span class="d-none d-sm-none">Jaro, Iloilo City</span>
+    </div>
+    <div id="txt" style="color: white; margin-left: auto; text-align: center;"></div>
+  </div>
+
+
+
+
 
       <div class="main">
         <div class="wrapper">
