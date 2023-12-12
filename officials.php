@@ -163,7 +163,7 @@ div.content {
             <i class="fas fa-user"></i>
             <span class="nav-item">Officials</span>
           </a>
-    <a href="#Issuance.php">
+    <a href="#issuanceDet.php">
             <i class="fas fa-id-card"></i>
             <span class="nav-item">Issuance Details</span>
           </a>
