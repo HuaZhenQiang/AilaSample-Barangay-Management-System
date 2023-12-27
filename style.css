@@ -1,5 +1,3 @@
-/* Google fonts(Poppins) */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 * {
   margin: 0;
@@ -21,9 +19,11 @@
   padding: 5px 20px;
 }
 
-.header .fa-bars {
-  background-color: #f5d318;
-}
+/*.header .fa-bars {
+  background-color: white;
+}*/
+
+
 .header img {
   height: 50px; /* Adjust the height as needed */
   width: auto;
@@ -127,7 +127,7 @@
   min-width: 60px;
   text-align: center;
   line-height: 50px;
-  color: #002a5b; /* Set the icon color to #002a5b */
+  color: #000000; /* Set the icon color to #002a5b */
   font-size: 19px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -148,7 +148,7 @@
 }
 
 .sidebar .nav-list li a .link-name {
-  color: #fff;
+  color: #000000;
   font-size: 16px;
   font-weight: 350;
   transition: all 0.4s ease;
