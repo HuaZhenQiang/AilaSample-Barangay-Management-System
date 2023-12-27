@@ -21,7 +21,7 @@
   padding: 5px 20px;
 }
 
-.header .fa-menu {
+.header .fa-bars {
   background-color: #f5d318;
 }
 .header img {
@@ -68,7 +68,7 @@
 
 .sidebar .logo i {
   font-size: 30px;
-  color: #f5d318;
+  color: #000000;
   height: 50px;
   min-width: 60px;
   text-align: center;
@@ -127,7 +127,7 @@
   min-width: 60px;
   text-align: center;
   line-height: 50px;
-  color: #f5d318;
+  color: #002a5b; /* Set the icon color to #002a5b */
   font-size: 19px;
   cursor: pointer;
   transition: all 0.3s ease;
