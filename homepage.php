@@ -131,8 +131,10 @@
     }
 
   </style>
-
 </head>
+
+
+
 
 
 <body style="background: url('img/') no-repeat center center fixed; background-size: 100%;" onload="startTime()">
@@ -176,42 +178,42 @@
 
 
   <!-- Records Dropdown -->
-<div class="dropdown">
-  <a class="dropdown-toggle" href="#" role="button" id="recordsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="fab fa-dochub"></i>
-    <span class="nav-item">Records</span>
-  </a>
-  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="recordsDropdown">
-    <a class="dropdown-item record-link" href="#record1.php">Record 1</a>
-    <a class="dropdown-item record-link" href="#record2.php">Record 2</a>
-    <!-- Add more dropdown items as needed -->
+  <div class="dropdown">
+    <a class="dropdown-toggle" href="#" role="button" id="recordsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fab fa-dochub"></i>
+      <span class="nav-item">Records</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="recordsDropdown">
+      <a class="dropdown-item record-link" href="#record1.php">Record 1</a>
+      <a class="dropdown-item record-link" href="#record2.php">Record 2</a>
+      <!-- Add more dropdown items as needed -->
+    </div>
   </div>
-</div>
-<!-- End Records Dropdown -->
+  <!-- End Records Dropdown -->
 
-<script>
+  <script>
   // JavaScript to add 'active' class to the corresponding dropdown item
-  document.addEventListener("DOMContentLoaded", function () {
-    var currentLocation = window.location.href;
+    document.addEventListener("DOMContentLoaded", function () {
+      var currentLocation = window.location.href;
 
     // Check each dropdown item and add 'active' class if its href matches the current location
-    document.querySelectorAll('.record-link').forEach(function (item) {
-      if (item.getAttribute('href') === currentLocation) {
-        item.classList.add('active');
-      }
+      document.querySelectorAll('.record-link').forEach(function (item) {
+        if (item.getAttribute('href') === currentLocation) {
+          item.classList.add('active');
+        }
+      });
     });
-  });
-</script>
+  </script>
 
-<style>
-  /* Custom CSS for dropdown highlight effect */
-  .dropdown-item:hover,
-  .dropdown-item:focus,
-  .record-link.active {
-    background-color: #002a5b;
-    color: white;
-  }
-</style>
+  <style>
+    /* Custom CSS for dropdown highlight effect */
+    .dropdown-item:hover,
+    .dropdown-item:focus,
+    .record-link.active {
+      background-color: #002a5b;
+      color: white;
+    }
+  </style>
 
 
 
