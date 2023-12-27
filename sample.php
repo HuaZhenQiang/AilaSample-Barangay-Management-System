@@ -18,7 +18,7 @@
   <body>
 
     <div class="header">
-      <i class="fas fa-bars" style="margin-right: 2%;"></i>
+      <i class="fas fa-bars" style="margin-right: 2%; color: white;"></i>
       <!-- <span class="text">BMS</span> -->
     <img src="img/logo.png" alt="Iloilo City Seal">
     <div class="title">
