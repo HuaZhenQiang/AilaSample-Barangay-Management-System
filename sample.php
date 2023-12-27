@@ -55,10 +55,6 @@
       margin-left: auto;
     }
 
-    .sidebar {
-      position: relative; 
-    }
-
     .sidebar::before {
       content: "";
       position: absolute;
@@ -71,33 +67,29 @@
       background-position: center;
       background-repeat: no-repeat;
       z-index: 1;
+      opacity: 1;
+      transition: opacity 0.4s ease;
     }
 
     .sidebar .logo,
     .sidebar .nav-list {
+      top: 8%;
       position: relative;
       z-index: 1; 
     }
 
-    /*.sidebar .img-header {
-      z-index: 2;
-    }
-
-    .img-header {
-      z-index: 3;
-    }*/
-
     .sidebar {
       margin: 60px 0 0 0;
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
-      height: 100vh;
       width: 260px;
+      height: 100vh;
       background-color: #FFFFFF;
       transition: all 0.5s ease;
       z-index: 100;
       color: #00000;
+      opacity: 1;
     }
 
     .sidebar.close {
@@ -155,6 +147,7 @@
 
     .sidebar .nav-list li:hover {
       background-color: #002a5b;
+      border-radius: 20%;
     }
 
     .sidebar .nav-list li .icon-link {
@@ -284,7 +277,6 @@
       transform: translateY(-50%);
     }
 
-
     .logout {
       position: fixed;
       bottom: 0;
@@ -371,6 +363,27 @@
     }
 
   </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  let btn = document.querySelector(".fa-bars-menu");
+  let sidebar = document.querySelector(".sidebar");
+
+  btn.addEventListener("click", () => {
+    sidebar.classList.toggle("close");
+    sidebar.classList.toggle("expanded");
+  });
+
+  let arrows = document.querySelectorAll(".arrow");
+  for (let i = 0; i < arrows.length; i++) {
+    arrows[i].addEventListener("click", (e) => {
+      let arrowParent = e.target.parentElement.parentElement;
+      arrowParent.classList.toggle("show");
+    });
+  }
+});
+
+  </script>
 </head>
 
 <body>
@@ -391,7 +404,7 @@
 
   <div class="sidebar close">
     <div class="logo">
-      <img src="img/samp.png" alt="me" style="height: 60px; width: 60px; border-radius: 50%; margin-top: 25%;">
+      <img src="img/samp.png" alt="me" style="height: 60px; width: 60px; border-radius: 50%;">
       <!-- <i class="ri-store-3-fill"></i>
       <span class="logo-name">BMS</span> -->
     </div>
