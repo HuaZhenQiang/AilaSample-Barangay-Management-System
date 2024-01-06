@@ -105,8 +105,8 @@
     }
 
     .sidebar .logo img {
-      height: 60px;
-      width: 60px;
+      height: 40px;
+      width: 40px;
       border-radius: 50%;
       margin-right: 1%;
       margin-top: -30%;
@@ -448,7 +448,7 @@ padding-left: 3%;
     <div class="logo">
       <img src="img/samp.png" alt="me" >
       <!-- <span class="user">Ira Jude</span>
-      <p>iju.tajanlangit@gmail.com</p> -->
+        <p>iju.tajanlangit@gmail.com</p> -->
       <!-- <i class="ri-store-3-fill"></i>
         <span class="logo-name">BMS</span> -->
       </div>
