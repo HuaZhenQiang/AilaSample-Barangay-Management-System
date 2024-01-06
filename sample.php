@@ -108,7 +108,8 @@
       height: 40px;
       width: 40px;
       border-radius: 50%;
-      margin-right: 1%;
+      margin-right: 10%;
+      margin-left: 1%;
       margin-top: -30%;
     }
 
