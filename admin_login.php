@@ -1,371 +1,297 @@
-HTMLResult Skip Results Iframe
-
 <!DOCTYPE html>
-<html lang="en" >
-
+<html>
 <head>
-  <meta charset="UTF-8">
+  <title>Animated Login Form</title>
   
-
-  <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
-
-  <meta name="apple-mobile-web-app-title" content="CodePen">
-
-  <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
-
-  <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    const inputs = document.querySelectorAll(".input");
 
 
+    function addcl(){
+      let parent = this.parentNode.parentNode;
+      parent.classList.add("focus");
+    }
 
-  
-  <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+    function remcl(){
+      let parent = this.parentNode.parentNode;
+      if(this.value == ""){
+        parent.classList.remove("focus");
+      }
+    }
 
 
-  <title>CodePen - Responsive Login + Signup form </title>
+    inputs.forEach(input => {
+      input.addEventListener("focus", addcl);
+      input.addEventListener("blur", remcl);
+    });
 
-  <link rel="canonical" href="https://codepen.io/h26k2/pen/GyBevz">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Responsive Signup with login form</title>
-  <link rel="stylesheet" href="index.css" type="text/css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  
-  
-  
+//Source :- https://github.com/sefyudem/Responsive-Login-Form/blob/master/img/avatar.svg
+  </script>
+
   <style>
-    @import url('https://fonts.googleapis.com/css?family=Montserrat|Quicksand');
-
     *{
-      font-family: 'quicksand',Arial, Helvetica, sans-serif;
+      padding: 0;
+      margin: 0;
       box-sizing: border-box;
     }
 
     body{
-      background:#fff;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
     }
 
-    .form-modal{
-      position:relative;
-      width:450px;
-      height:auto;
-      margin-top:4em;
-      left:50%;
-      transform:translateX(-50%);
-      background:#fff;
-      border-top-right-radius: 20px;
-      border-top-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-      box-shadow:0 3px 20px 0px rgba(0, 0, 0, 0.1)
+    .wave{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      z-index: -1;
     }
 
-    .form-modal button{
-      cursor: pointer;
+    .container{
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap :7rem;
+      padding: 0 2rem;
+    }
+
+    .img{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .login-content{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+    }
+
+    .img img{
+      width: 500px;
+    }
+
+    form{
+      width: 360px;
+    }
+
+    .login-content img{
+      height: 100px;
+    }
+
+    .login-content h2{
+      margin: 15px 0;
+      color: #333;
+      text-transform: uppercase;
+      font-size: 2.9rem;
+    }
+
+    .login-content .input-div{
       position: relative;
-      text-transform: capitalize;
-      font-size:1em;
-      z-index: 2;
-      outline: none;
-      background:#fff;
-      transition:0.2s;
+      display: grid;
+      grid-template-columns: 7% 93%;
+      margin: 25px 0;
+      padding: 5px 0;
+      border-bottom: 2px solid #d9d9d9;
     }
 
-    .form-modal .btn{
-      border-radius: 20px;
-      border:none;
-      font-weight: bold;
-      font-size:1.2em;
-      padding:0.8em 1em 0.8em 1em!important;
-      transition:0.5s;
-      border:1px solid #ebebeb;
-      margin-bottom:0.5em;
-      margin-top:0.5em;
+    .login-content .input-div.one{
+      margin-top: 0;
     }
 
-    .form-modal .login , .form-modal .signup{
-      background:#57b846;
-      color:#fff;
+    .i{
+      color: #d9d9d9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .form-modal .login:hover , .form-modal .signup:hover{
-      background:#222;
+    .i i{
+      transition: .3s;
     }
 
-    .form-toggle{
+    .input-div > div{
       position: relative;
-      width:100%;
-      height:auto;
+      height: 45px;
     }
 
-    .form-toggle button{
-      width:50%;
-      float:left;
-      padding:1.5em;
-      margin-bottom:1.5em;
-      border:none;
-      transition: 0.2s;
-      font-size:1.1em;
-      font-weight: bold;
-      border-top-right-radius: 20px;
-      border-top-left-radius: 20px;
-    }
-
-    .form-toggle button:nth-child(1){
-      border-bottom-right-radius: 20px;
-    }
-
-    .form-toggle button:nth-child(2){
-      border-bottom-left-radius: 20px;
-    }
-
-    #login-toggle{
-      background:#57b846;
-      color:#ffff;
-    }
-
-    .form-modal form{
-      position: relative;
-      width:90%;
-      height:auto;
-      left:50%;
-      transform:translateX(-50%);  
-    }
-
-    #login-form , #signup-form{
-      position:relative;
-      width:100%;
-      height:auto;
-      padding-bottom:1em;
-    }
-
-    #signup-form{
-      display: none;
-    }
-
-
-    #login-form button , #signup-form button{
-      width:100%;
-      margin-top:0.5em;
-      padding:0.6em;
-    }
-
-    .form-modal input{
-      position: relative;
-      width:100%;
-      font-size:1em;
-      padding:1.2em 1.7em 1.2em 1.7em;
-      margin-top:0.6em;
-      margin-bottom:0.6em;
-      border-radius: 20px;
-      border:none;
-      background:#ebebeb;
-      outline:none;
-      font-weight: bold;
-      transition:0.4s;
-    }
-
-    .form-modal input:focus , .form-modal input:active{
-      transform:scaleX(1.02);
-    }
-
-    .form-modal input::-webkit-input-placeholder{
-      color:#222;
-    }
-
-
-    .form-modal p{
-      font-size:16px;
-      font-weight: bold;
-    }
-
-    .form-modal p a{
-      color:#57b846;
-      text-decoration: none;
-      transition:0.2s;
-    }
-
-    .form-modal p a:hover{
-      color:#222;
-    }
-
-
-    .form-modal i {
+    .input-div > div > h5{
       position: absolute;
-      left:10%;
-      top:50%;
-      transform:translateX(-10%) translateY(-50%); 
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+      font-size: 18px;
+      transition: .3s;
     }
 
-    .fa-google{
-      color:#dd4b39;
+    .input-div:before, .input-div:after{
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      width: 0%;
+      height: 2px;
+      background-color: #38d39f;
+      transition: .4s;
     }
 
-    .fa-linkedin{
-      color:#3b5998;
+    .input-div:before{
+      right: 50%;
     }
 
-    .fa-windows{
-      color:#0072c6;
+    .input-div:after{
+      left: 50%;
     }
 
-    .-box-sd-effect:hover{
-      box-shadow: 0 4px 8px hsla(210,2%,84%,.2);
+    .input-div.focus:before, .input-div.focus:after{
+      width: 50%;
     }
 
-    @media only screen and (max-width:500px){
-      .form-modal{
-        width:100%;
+    .input-div.focus > div > h5{
+      top: -5px;
+      font-size: 15px;
+    }
+
+    .input-div.focus > .i > i{
+      color: #38d39f;
+    }
+
+    .input-div > div > input{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      outline: none;
+      background: none;
+      padding: 0.5rem 0.7rem;
+      font-size: 1.2rem;
+      color: #555;
+      font-family: 'poppins', sans-serif;
+    }
+
+    .input-div.pass{
+      margin-bottom: 4px;
+    }
+
+    a{
+      display: block;
+      text-align: right;
+      text-decoration: none;
+      color: #999;
+      font-size: 0.9rem;
+      transition: .3s;
+    }
+
+    a:hover{
+      color: #38d39f;
+    }
+
+    .btn{
+      display: block;
+      width: 100%;
+      height: 50px;
+      border-radius: 25px;
+      outline: none;
+      border: none;
+      background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+      background-size: 200%;
+      font-size: 1.2rem;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      text-transform: uppercase;
+      margin: 1rem 0;
+      cursor: pointer;
+      transition: .5s;
+    }
+    .btn:hover{
+      background-position: right;
+    }
+
+
+    @media screen and (max-width: 1050px){
+      .container{
+        grid-gap: 5rem;
       }
     }
 
-    @media only screen and (max-width:400px){
-      i{
-        display: none!important;
+    @media screen and (max-width: 1000px){
+      form{
+        width: 290px;
+      }
+
+      .login-content h2{
+        font-size: 2.4rem;
+        margin: 8px 0;
+      }
+
+      .img img{
+        width: 400px;
+      }
+    }
+
+    @media screen and (max-width: 900px){
+      .container{
+        grid-template-columns: 1fr;
+      }
+
+      .img{
+        display: none;
+      }
+
+      .wave{
+        display: none;
+      }
+
+      .login-content{
+        justify-content: center;
       }
     }
   </style>
-
-  <script>
-    window.console = window.console || function(t) {};
-  </script>
-
-  
-  
 </head>
 
-<body translate="no">
-  <div class="form-modal">
-    
-    <div class="form-toggle">
-      <button id="login-toggle" onclick="toggleLogin()">log in</button>
-      <button id="signup-toggle" onclick="toggleSignup()">sign up</button>
-    </div>
 
-    <div id="login-form">
-      <div>
-        <input type="text" id="email" placeholder="Enter email "/>
-        <input type="password" id=" password" placeholder="Enter password"/>
-        <input type="submit"  id="login" class="btn login" value="Login">
-        <p><a href="javascript:void(0)">Forgotten account</a></p>
-        <hr/>
-        <button type="button" class="btn -box-sd-effect"> <i class="fa fa-google fa-lg" aria-hidden="true"></i> sign in with google</button>
-        <button type="button" class="btn -box-sd-effect"> <i class="fa fa-linkedin fa-lg" aria-hidden="true"></i> sign in with linkedin</button>
-        <button type="button" class="btn -box-sd-effect"> <i class="fa fa-windows fa-lg" aria-hidden="true"></i> sign in with microsoft</button>
+<body>
+  <img class="wave" src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/wave.png">
+  <div class="container">
+    <div class="img">
+      <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/bg.svg">
+    </div>
+    <div class="login-content">
+      <form>
+        <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg">
+        <h2 class="title">Welcome</h2>
+        <div class="input-div one">
+         <div class="i">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="div">
+          <!-- <h5>Username</h5> -->
+          <input type="text" class="input" placeholder="Username">
+        </div>
+      </div>
+      <div class="input-div pass">
+       <div class="i"> 
+        <i class="fas fa-lock"></i>
+      </div>
+      <div class="div">
+        <!-- <h5>Password</h5> -->
+        <input type="password" class="input" placeholder="Password">
       </div>
     </div>
+    <a href="#">Forgot Password?</a>
+    <input type="submit" class="btn" value="Login">
+    <a href="#">Don't have an account? Sign up</a>
+  </form>
+</div>
+</div>
 
-    <div id="signup-form">
-      <div>
-        
-        <input type="text" id="username" name="username" placeholder="Choose username"/>
-        <input type="email" id="email" name="email" placeholder="Enter your email"/>
-        <input type="password" id="password" name="password" placeholder="Create password"/>
-        <input type="submit" id="signUp" class="btn signup" value="Sign Up ">
-        <p>Clicking <strong>create account</strong> means that you are agree to our <a href="javascript:void(0)">terms of services</a>.</p>
-        <hr/>
-        <button type="button" class="btn -box-sd-effect"> <i class="fa fa-google fa-lg" aria-hidden="true"></i> sign up with google</button>
-        <button type="button" class="btn -box-sd-effect"> <i class="fa fa-linkedin fa-lg" aria-hidden="true"></i> sign up with linkedin</button>
-        <button type="button" class="btn -box-sd-effect"> <i class="fa fa-windows fa-lg" aria-hidden="true"></i> sign up with microsoft</button>
-      </div>
-    </div>
-
-  </div>
-  
-  <script id="rendered-js" >
-    function toggleSignup() {
-      document.getElementById("login-toggle").style.backgroundColor = "#fff";
-      document.getElementById("login-toggle").style.color = "#222";
-      document.getElementById("signup-toggle").style.backgroundColor = "#57b846";
-      document.getElementById("signup-toggle").style.color = "#fff";
-      document.getElementById("login-form").style.display = "none";
-      document.getElementById("signup-form").style.display = "block";
-    }
-
-    function toggleLogin() {
-      document.getElementById("login-toggle").style.backgroundColor = "#57B846";
-      document.getElementById("login-toggle").style.color = "#fff";
-      document.getElementById("signup-toggle").style.backgroundColor = "#fff";
-      document.getElementById("signup-toggle").style.color = "#222";
-      document.getElementById("signup-form").style.display = "none";
-      document.getElementById("login-form").style.display = "block";
-    }
-//# sourceURL=pen.js
-  </script>
-  <script type="module">
-  // Import the functions you need from the SDKs you need
- // import { initializeApp } from 
-
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-    import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
-
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyD6saE1sgNNYA4DSlMu_JoFfltzYhPMZtc",
-      authDomain: "vridhipages-auth.firebaseapp.com",
-      databaseURL: "https://vridhipages-auth-default-rtdb.firebaseio.com",
-      projectId: "vridhipages-auth",
-      storageBucket: "vridhipages-auth.appspot.com",
-      messagingSenderId: "376345254551",
-      appId: "1:376345254551:web:fdc413c334956764fae7d2"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app); 
-    const auth = getAuth();
-
-    const signUpButton = document.getElementById("signUp");
-    signUp.addEventListener('click',(e) => {
-      var email = document.getElementById('email').value;
-      var username = document.getElementById('username').value;
-      var password = document.getElementById('password').value;
-
-      createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-    // Signed in 
-        const user = userCredential.user;
-        set(ref(database,'users/'+ user.uid),{
-          username:username,email:email})
-        alert('You are succesfully registered')
-    // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert (errorMessage);
-    // ..
-      });
-    });
-    
-    login.addEventListener('click',(e) => {
-      var email = document.getElementById('email').value;
-      var password = document.getElementById('password').value;
-
-      signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-    // Signed in 
-        const user = userCredential.user;
-        const dt = new Date()
-    // ...
-        update(ref(database,'users/'+ user.uid),{
-          last_login:dt})
-        alert('You are succesfully logged in')
-    // ...
-      })
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert (errorMessage);
-    });});
-  </script>
 </body>
-
 </html>
-
-
-
-Resources1× 0.5× 0.25×Rerun
