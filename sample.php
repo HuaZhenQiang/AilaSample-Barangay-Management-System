@@ -12,7 +12,7 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
   <!--css file-->
-  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="style.css"> -->
   
   <style>
     * {
@@ -368,11 +368,12 @@ padding-left: 3%;
   cursor: pointer;
 }
 
-.home-section .home-content .text {
+.home-section .home-content .text .h1{
   white-space: nowrap;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 100;
 }
+
 
 .home-content {
   background: #F1F1F1;
@@ -394,7 +395,7 @@ padding-left: 3%;
   }
 
   .home-section {
-    left: 60px;
+    left: 62px;
     width: calc(100% - 60px);
     z-index: 100;
   }
@@ -402,6 +403,7 @@ padding-left: 3%;
   .sidebar.close ~ .home-section {
     width: 100%;
     left: 0;
+    margin-top: 10%;
   }
 }
 
@@ -563,6 +565,7 @@ padding-left: 3%;
       <div class="home-content">
       <!-- <i class="fas fa-bars"></i>
         <span class="text">BMS</span> -->
+        <h1 >Sample Request</h1>
       </div>
     </div>
 
