@@ -66,9 +66,9 @@
     /* Sidebar links */
     .sidebar a {
       display: block;
-      color: black;
+      color: white;
       padding: 16px;
-      text-decoration: none;
+/*      text-decoration: none;*/
     }
 
     /* Active/current link */
