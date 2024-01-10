@@ -337,6 +337,16 @@ padding-left: 3%;
   width: 60px;
 }
 
+.content {
+  position: relative;
+  height: 100vh;
+  overflow: hidden; 
+}
+
+.content-wrapper {
+  overflow-y: auto; 
+  height: 100%; 
+}
 .home-section {
   position: relative;
   height: 100vh;
@@ -368,17 +378,18 @@ padding-left: 3%;
   cursor: pointer;
 }
 
-.home-section .home-content .text .h1{
+/*.home-section .home-content .text .h1{
   white-space: nowrap;
   font-size: 10px;
   font-weight: 100;
-}
-
+}*/
 
 .home-content {
   background: #F1F1F1;
   position: sticky;
-  top: 0;
+  top: 10%;
+  padding: 20px;
+  z-index: 2; 
 }
 
 @media (max-width: 400px) {
