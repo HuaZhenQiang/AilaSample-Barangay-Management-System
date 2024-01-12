@@ -635,13 +635,13 @@
 
         <li>
           <div class="logout">
-            <a href="form.html">
+            <a href="admin_login.php">
               <i class="ri-logout-box-line" style="color:white;"></i>
               <span class="link-name" style="color: white;">Logout</span>
             </a>
 
             <ul class="sub-menu blank">
-              <li><a href="form.html" class="link-name">Logout</a></li>
+              <li><a href="admin_login.php" class="link-name">Logout</a></li>
             </ul>
           </div>
         </li>
