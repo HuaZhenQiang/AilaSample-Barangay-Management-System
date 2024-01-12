@@ -1,49 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Animated Login Form</title>
   
   <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script>
-    const inputs = document.querySelectorAll(".input");
-
-
-    function addcl(){
-      let parent = this.parentNode.parentNode;
-      parent.classList.add("focus");
-    }
-
-    function remcl(){
-      let parent = this.parentNode.parentNode;
-      if(this.value == ""){
-        parent.classList.remove("focus");
-      }
-    }
-
-
-    inputs.forEach(input => {
-      input.addEventListener("focus", addcl);
-      input.addEventListener("blur", remcl);
-    });
-
-//Source :- https://github.com/sefyudem/Responsive-Login-Form/blob/master/img/avatar.svg
-  </script>
-
+  
   <style>
-    *{
+    * {
       padding: 0;
       margin: 0;
       box-sizing: border-box;
     }
 
-    body{
+    body {
       font-family: 'Poppins', sans-serif;
       overflow: hidden;
     }
 
-    .wave{
+    .wave {
       position: fixed;
       bottom: 0;
       left: 0;
@@ -51,48 +27,50 @@
       z-index: -1;
     }
 
-    .container{
+    .container {
       width: 100vw;
       height: 100vh;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-gap :7rem;
+      grid-gap: 7rem;
       padding: 0 2rem;
     }
 
-    .img{
+    .img {
       display: flex;
       justify-content: flex-end;
       align-items: center;
     }
 
-    .login-content{
+    .login-content {
       display: flex;
       justify-content: flex-start;
       align-items: center;
       text-align: center;
     }
 
-    .img img{
-      width: 500px;
+    .img img {
+      width: 100%;
+      max-width: 500px;
     }
 
-    form{
-      width: 360px;
+    form {
+      width: 100%;
+      max-width: 360px;
     }
 
-    .login-content img{
+    .login-content img {
       height: 100px;
     }
 
-    .login-content h2{
+    .login-content h2 {
       margin: 15px 0;
       color: #333;
       text-transform: uppercase;
       font-size: 2.9rem;
     }
 
-    .login-content .input-div{
+    .login-content .input-div {
       position: relative;
       display: grid;
       grid-template-columns: 7% 93%;
@@ -101,27 +79,27 @@
       border-bottom: 2px solid #d9d9d9;
     }
 
-    .login-content .input-div.one{
+    .login-content .input-div.one {
       margin-top: 0;
     }
 
-    .i{
+    .i {
       color: #d9d9d9;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .i i{
+    .i i {
       transition: .3s;
     }
 
-    .input-div > div{
+    .input-div > div {
       position: relative;
       height: 45px;
     }
 
-    .input-div > div > h5{
+    .input-div > div > h5 {
       position: absolute;
       left: 10px;
       top: 50%;
@@ -131,7 +109,8 @@
       transition: .3s;
     }
 
-    .input-div:before, .input-div:after{
+    .input-div:before,
+    .input-div:after {
       content: '';
       position: absolute;
       bottom: -2px;
@@ -141,28 +120,29 @@
       transition: .4s;
     }
 
-    .input-div:before{
+    .input-div:before {
       right: 50%;
     }
 
-    .input-div:after{
+    .input-div:after {
       left: 50%;
     }
 
-    .input-div.focus:before, .input-div.focus:after{
+    .input-div.focus:before,
+    .input-div.focus:after {
       width: 50%;
     }
 
-    .input-div.focus > div > h5{
+    .input-div.focus > div > h5 {
       top: -5px;
       font-size: 15px;
     }
 
-    .input-div.focus > .i > i{
+    .input-div.focus > .i > i {
       color: #38d39f;
     }
 
-    .input-div > div > input{
+    .input-div > div > input {
       position: absolute;
       left: 0;
       top: 0;
@@ -177,12 +157,11 @@
       font-family: 'poppins', sans-serif;
     }
 
-
-    .input-div.pass{
+    .input-div.pass {
       margin-bottom: 4px;
     }
 
-    a{
+    a {
       display: block;
       text-align: right;
       text-decoration: none;
@@ -191,11 +170,11 @@
       transition: .3s;
     }
 
-    a:hover{
+    a:hover {
       color: #38d39f;
     }
 
-    .btn{
+    .btn {
       display: block;
       width: 100%;
       height: 50px;
@@ -212,52 +191,57 @@
       cursor: pointer;
       transition: .5s;
     }
-    .btn:hover{
+
+    .btn:hover {
       background-position: right;
     }
 
+    /* New styling to change placeholder color */
+    ::placeholder {
+      color: lightgray;
+    }
 
-    @media screen and (max-width: 1050px){
-      .container{
+    @media screen and (max-width: 1050px) {
+      .container {
         grid-gap: 5rem;
       }
     }
 
-    @media screen and (max-width: 1000px){
-      form{
-        width: 290px;
+    @media screen and (max-width: 1000px) {
+      form {
+        width: 100%;
+        max-width: 290px;
       }
 
-      .login-content h2{
+      .login-content h2 {
         font-size: 2.4rem;
         margin: 8px 0;
       }
 
-      .img img{
-        width: 400px;
+      .img img {
+        max-width: 400px;
       }
     }
 
-    @media screen and (max-width: 900px){
-      .container{
+    @media screen and (max-width: 900px) {
+      .container {
         grid-template-columns: 1fr;
       }
 
-      .img{
+      .img {
         display: none;
       }
 
-      .wave{
+      .wave {
         display: none;
       }
 
-      .login-content{
+      .login-content {
         justify-content: center;
       }
     }
   </style>
 </head>
-
 
 <body>
   <img class="wave" src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/wave.png">
@@ -270,29 +254,26 @@
         <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg">
         <h2 class="title">Welcome</h2>
         <div class="input-div one">
-         <div class="i">
-          <i class="fas fa-user"></i>
+          <div class="i">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="div">
+            <input type="text" class="input" placeholder="Username">
+          </div>
         </div>
-        <div class="div">
-          <!-- <h5>Username</h5> -->
-          <input type="text" class="input" placeholder="Username">
+        <div class="input-div pass">
+          <div class="i">
+            <i class="fas fa-lock"></i>
+          </div>
+          <div class="div">
+            <input type="password" class="input" placeholder="Password">
+          </div>
         </div>
-      </div>
-      <div class="input-div pass">
-       <div class="i"> 
-        <i class="fas fa-lock"></i>
-      </div>
-      <div class="div">
-        <!-- <h5>Password</h5> -->
-        <input type="password" class="input" placeholder="Password">
-      </div>
+        <a href="#">Forgot Password?</a>
+        <input type="submit" class="btn" value="Login">
+        <a href="#" style="text-align: center;">Don't have an account? Sign up</a>
+      </form>
     </div>
-    <a href="#">Forgot Password?</a>
-    <input type="submit" class="btn" value="Login">
-    <a href="#">Don't have an account? Sign up</a>
-  </form>
-</div>
-</div>
-
+  </div>
 </body>
 </html>
