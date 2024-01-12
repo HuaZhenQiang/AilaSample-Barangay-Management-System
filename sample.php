@@ -351,7 +351,7 @@
   .home-section {
     position: relative;
     margin-left: 260px;
-/*    margin-top: 10%;*/
+    margin-top: 4%;
     height: calc(100vh - 60px); 
     overflow: hidden;
     transition: all 0.5s ease;
@@ -362,7 +362,8 @@
   .content {
     position: relative;
     margin-top: 60px;
-    height: calc(100vh - 60px);
+/*    height: calc(100vh - 60px);*/
+    height: 100%;
     overflow: hidden;
     width: calc(100% - 260px); 
   }
@@ -397,7 +398,7 @@
   }
 
   .home-section .home-content i {
-    margin: 0 15px;
+/*    margin: 0 15px;*/
     cursor: pointer;
   }
 
@@ -529,6 +530,9 @@
       <!-- <i class="ri-store-3-fill"></i>
         <span class="logo-name">BMS</span> -->
       </div>
+      <!-- <div class="userN">
+        <p>Ira Jude Tajanlangit</p>
+      </div> -->
 
       <ul class="nav-list">
         <li>
@@ -618,7 +622,7 @@
           </ul>
         </li>
 
-        <li>
+        <!-- <li>
           <a href="#">
             <i class="ri-logout-box-line"></i>
             <span class="link-name">Logout</span>
@@ -627,7 +631,7 @@
           <ul class="sub-menu blank">
             <li><a href="logout.php" class="link-name">Logout</a></li>
           </ul>
-        </li>
+        </li> -->
 
         <li>
           <div class="logout">
