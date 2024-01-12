@@ -10,13 +10,13 @@ include 'connection.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>BBJMS</title>
 
-	<!-- <style>
+	<style>
 		body ,h1 {
 
 			margin-left: 10%;
 			margin-top: 5%;
 		}
-	</style> -->
+	</style>
 </head>		
 <body>
 	<div class="home-section">
