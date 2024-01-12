@@ -1,7 +1,61 @@
+<?php
+session_start();
+define('BASEPATH', true);
+require 'connection.php';
+
+$error_message = '';
+
+if (isset($_POST['Login'])) {
+  try {
+    $dsn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+    $dsn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // Ensure fields are not empty
+    $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
+    $passwordAttempt = !empty($_POST['password']) ? trim($_POST['password']) : null;
+
+        // Retrieve the user account information for the given username.
+    $sql = "SELECT id, username, password FROM user WHERE username = :username";
+    $stmt = $dsn->prepare($sql);
+
+        // Bind value.
+    $stmt->bindValue(':username', $username);
+
+        // Execute.
+    $stmt->execute();
+
+        // Fetch row.
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // If $user is FALSE.
+    if ($user === false) {
+      $error_message = "Invalid username or password";
+    } else {
+            // Compare and decrypt passwords.
+      $validPassword = password_verify($passwordAttempt, $user['password']);
+
+            // If $validPassword is TRUE, the login has been successful.
+      if ($validPassword) {
+                // Provide the user with a login session.
+        $_SESSION['user'] = $username;
+        header('location: homepage.php');
+        exit;
+      } else {
+                // $validPassword was FALSE. Passwords do not match.
+        $error_message = "Invalid username or password";
+      }
+    }
+  } catch (PDOException $e) {
+    $error_message = "Error: " . $e->getMessage();
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Animated Login Form</title>
+  <title>Register</title>
   
   <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
@@ -83,14 +137,14 @@
       margin-top: 0;
     }
 
-    .i {
+    .row {
       color: #d9d9d9;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .i i {
+    .row i {
       transition: .3s;
     }
 
@@ -138,7 +192,7 @@
       font-size: 15px;
     }
 
-    .input-div.focus > .i > i {
+    .input-div.focus > .row > i {
       color: #38d39f;
     }
 
@@ -241,6 +295,17 @@
       }
     }
   </style>
+
+  <script>
+   function togglePassword() {
+    var password = document.getElementById("password");
+    if (password.type === "password") {
+      password.type = "text";
+    } else {
+      password.type = "password";
+    }
+  }
+</script>
 </head>
 
 <body>
@@ -250,28 +315,44 @@
       <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/bg.svg">
     </div>
     <div class="login-content">
-      <form>
+
+      <!-- In your HTML form -->
+      <div class="error-message">
+        <?php echo $error_message; ?>
+      </div>
+
+
+      <form method="POST" action="">
         <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg">
         <h2 class="title">Admin Access</h2>
         <div class="input-div one">
-          <div class="i">
+          <div class="row">
             <i class="fas fa-user"></i>
           </div>
           <div class="div">
-            <input type="text" class="input" placeholder="Username">
+            <input type="text" required name="username" class="input" placeholder="Username">
           </div>
         </div>
         <div class="input-div pass">
-          <div class="i">
+          <div class="row">
             <i class="fas fa-lock"></i>
           </div>
           <div class="div">
-            <input type="password" class="input" placeholder="Password">
+            <input type="password" required name="password" id="password" class="input" placeholder="Password">
+
+            <input type="checkbox" onclick="togglePassword()">&nbsp;Show Password
+
+
+            <!-- <input type="checkbox" onclick="togglePassword()">&nbsp;Show Password -->
           </div>
         </div>
         <a href="#">Forgot Password?</a>
-        <input type="submit" class="btn" value="Login">
-        <a href="#" style="text-align: center;">Don't have an account? Sign up</a>
+
+        <div class="row button my-4">
+          <input type="submit" name="Login" class="btn" value="Login">
+        </div>
+
+        <a href="admin_signup.php" style="text-align: center;">Don't have an account? Sign up</a>
         <a href="#" style="text-align: center;">Back to Homepage</a>
       </form>
     </div>
