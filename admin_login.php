@@ -6,48 +6,48 @@ require 'connection.php';
 $error_message = '';
 
 if (isset($_POST['Login'])) {
-  try {
-    $dsn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
-    $dsn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    try {
+        $dsn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $password);
+        $dsn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Ensure fields are not empty
-    $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
-    $passwordAttempt = !empty($_POST['password']) ? trim($_POST['password']) : null;
+        $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
+        $passwordAttempt = !empty($_POST['password']) ? trim($_POST['password']) : null;
 
         // Retrieve the user account information for the given username.
-    $sql = "SELECT id, username, password FROM user WHERE username = :username";
-    $stmt = $dsn->prepare($sql);
+        $sql = "SELECT id, username, password FROM user WHERE username = :username";
+        $stmt = $dsn->prepare($sql);
 
         // Bind value.
-    $stmt->bindValue(':username', $username);
+        $stmt->bindValue(':username', $username);
 
         // Execute.
-    $stmt->execute();
+        $stmt->execute();
 
         // Fetch row.
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // If $user is FALSE.
-    if ($user === false) {
-      $error_message = "Invalid username or password";
-    } else {
+        if ($user === false) {
+            $error_message = "Invalid username or password";
+        } else {
             // Compare and decrypt passwords.
-      $validPassword = password_verify($passwordAttempt, $user['password']);
+            $validPassword = password_verify($passwordAttempt, $user['password']);
 
             // If $validPassword is TRUE, the login has been successful.
-      if ($validPassword) {
+            if ($validPassword) {
                 // Provide the user with a login session.
-        $_SESSION['user'] = $username;
-        header('location: homepage.php');
-        exit;
-      } else {
+                $_SESSION['user'] = $username;
+                header('location: homepage.php');
+                exit;
+            } else {
                 // $validPassword was FALSE. Passwords do not match.
-        $error_message = "Invalid username or password";
-      }
+                $error_message = "Invalid username or password";
+            }
+        }
+    } catch (PDOException $e) {
+        $error_message = "Error: " . $e->getMessage();
     }
-  } catch (PDOException $e) {
-    $error_message = "Error: " . $e->getMessage();
-  }
 }
 ?>
 
